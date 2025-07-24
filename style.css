@@ -509,3 +509,151 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Bagian CSS Global Anda di luar Media Query --- */
+
+/* ... (Kode CSS yang sudah ada untuk desktop) ... */
+
+/* --- Media Queries untuk Layar Kecil (Smartphone) --- */
+@media (max-width: 768px) {
+    /* Aturan umum untuk layar di bawah 768px */
+    body {
+        font-size: 16px; /* Sesuaikan ukuran font dasar */
+    }
+
+    .container {
+        width: 95%; /* Maksimalkan lebar kontainer */
+        padding: 15px 0; /* Kurangi padding */
+    }
+
+    /* Header */
+    header .container {
+        flex-direction: column; /* Ubah tata letak header jadi vertikal */
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Beri jarak antara logo dan navigasi */
+    }
+
+    .header-logo {
+        height: 40px; /* Kecilkan ukuran logo */
+    }
+
+    .logo-text {
+        font-size: 1.5em; /* Kecilkan ukuran teks logo */
+    }
+
+    nav ul {
+        flex-direction: column; /* Ubah navigasi jadi tumpuk vertikal */
+        align-items: center;
+        width: 100%; /* Lebarkan navigasi ke 100% */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Kurangi margin horizontal, tambahi vertikal */
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 8px 0; /* Beri padding agar mudah diklik */
+        display: block; /* Buat link mengisi seluruh lebar li */
+    }
+
+    /* Hero Section */
+    #hero {
+        padding: 80px 15px; /* Kurangi padding */
+        min-height: 400px;
+    }
+    #hero h1 {
+        font-size: 2.5em; /* Kecilkan judul hero */
+    }
+    #hero .tagline {
+        font-size: 1.2em;
+    }
+    #hero p {
+        font-size: 0.9em;
+    }
+    .btn {
+        padding: 10px 20px; /* Kecilkan tombol */
+        margin: 8px auto; /* Rata tengah tombol jika ada beberapa */
+        display: block; /* Buat tombol memenuhi lebar */
+        max-width: 280px; /* Batasi lebar tombol */
+    }
+    .btn.whatsapp-btn {
+        margin-top: 15px; /* Jarak atas untuk tombol WA */
+    }
+
+    /* Section umum (Tentang, Jasa, Galeri, Kontak) */
+    section {
+        padding: 40px 15px; /* Kurangi padding vertikal */
+    }
+    h2 {
+        font-size: 2em; /* Kecilkan judul section */
+    }
+    h2::after {
+        width: 60px; /* Sesuaikan lebar garis bawah H2 */
+    }
+
+    /* Jasa Kami */
+    .services-grid {
+        grid-template-columns: 1fr; /* Ubah grid jadi satu kolom */
+        gap: 20px; /* Kurangi jarak antar item */
+    }
+    .service-item {
+        padding: 20px; /* Kurangi padding item jasa */
+    }
+    .service-icon {
+        font-size: 2.5em; /* Kecilkan ikon jasa */
+    }
+    .service-item h3 {
+        font-size: 1.3em; /* Kecilkan judul item jasa */
+    }
+
+    /* Galeri */
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Ubah grid jadi satu kolom */
+        gap: 15px; /* Kurangi jarak antar gambar */
+        padding: 0; /* Hapus padding samping */
+    }
+    .gallery-item img {
+        height: 180px; /* Sesuaikan tinggi gambar galeri */
+    }
+
+    /* Kontak */
+    .contact-info {
+        padding-left: 0; /* Hapus indentasi, biarkan rata tengah jika mau */
+        align-items: center; /* Rata tengah item kontak */
+        text-align: center; /* Rata tengah teks di item kontak */
+        max-width: 100%;
+    }
+
+    .contact-info p {
+        flex-direction: column; /* Ubah ikon dan teks kontak jadi tumpuk */
+        margin-bottom: 10px;
+    }
+    .contact-info i {
+        margin-right: 0; /* Hapus margin kanan ikon */
+        margin-bottom: 5px; /* Beri jarak bawah ikon ke teks */
+        min-width: unset; /* Reset min-width */
+    }
+
+    /* Footer */
+    footer .container {
+        flex-direction: column;
+    }
+    .social-links {
+        margin-top: 10px;
+    }
+}
+
+/* Anda bisa menambahkan media query lain untuk ukuran yang lebih kecil lagi, misal: */
+@media (max-width: 480px) {
+    /* Penyesuaian ekstra untuk layar sangat kecil */
+    h1 {
+        font-size: 2em;
+    }
+    .tagline {
+        font-size: 1em;
+    }
+}
