@@ -1,0 +1,511 @@
+/* General Styling */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #1a1a1a; /* Sangat gelap */
+  color: #f0f0f0; /* Teks terang */
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+h1,
+h2,
+h3 {
+  color: #e0e0e0; /* Judul lebih terang */
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Bayangan teks lebih gelap */
+}
+
+h2 {
+  font-size: 2.5em;
+  padding-bottom: 10px;
+  position: relative;
+}
+h2::after {
+  /* Garis bawah untuk H2 */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #007bff; /* Aksen biru tetap */
+  border-radius: 2px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+a {
+  color: #0099ff; /* Link lebih cerah untuk kontras */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #66ccff; /* Link hover lebih cerah */
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.primary {
+  background-color: #007bff; /* Aksen biru */
+  color: white;
+  border: 2px solid #007bff;
+}
+
+.btn.primary:hover {
+  background-color: #0056b3; /* Biru lebih gelap saat hover */
+  transform: translateY(-2px);
+  animation: pulse 0.5s infinite alternate; /* Animasi pulse */
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: #007bff; /* Aksen biru */
+  border: 2px solid #007bff;
+}
+
+.btn.secondary:hover {
+  background-color: rgba(0, 123, 255, 0.2); /* Sedikit transparan biru */
+  color: #007bff;
+  transform: translateY(-2px);
+  animation: pulse 0.5s infinite alternate;
+}
+
+.btn.whatsapp-btn {
+  /* Gaya untuk tombol WhatsApp */
+  background-color: #25d366; /* Warna hijau WhatsApp */
+  color: white;
+  border: 2px solid #25d366;
+}
+
+.btn.whatsapp-btn:hover {
+  background-color: #1da851; /* Warna hijau lebih gelap saat hover */
+  border-color: #1da851;
+  animation: pulse 0.5s infinite alternate;
+}
+
+.btn.whatsapp-btn i {
+  margin-right: 8px; /* Jarak antara ikon dan teks */
+}
+
+.btn.large {
+  padding: 15px 30px;
+  font-size: 1.1em;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Header */
+header {
+  background-color: #222222; /* Header gelap */
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan lebih gelap */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex; /* Menggunakan flexbox untuk mensejajarkan gambar dan teks */
+  align-items: center; /* Mensejajarkan secara vertikal di tengah */
+  gap: 10px; /* Memberi sedikit jarak antara gambar dan teks */
+  text-decoration: none; /* Menghilangkan underline jika .logo adalah link */
+}
+
+.header-logo {
+  /* Gaya untuk gambar logo */
+  height: 50px; /* Tinggi logo gambar */
+  width: auto;
+  display: block;
+}
+
+.logo-text {
+  /* Gaya untuk teks "RC COMMUNITY" */
+  font-size: 1.8em; /* Ukuran font yang sama dengan sebelumnya */
+  font-weight: bold;
+  color: #0099ff; /* Warna teks yang kontras */
+  text-transform: uppercase;
+  white-space: nowrap; /* Mencegah teks patah baris */
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #cccccc; /* Nav link terang */
+  font-weight: 500;
+  font-size: 1em;
+}
+
+nav ul li a:hover {
+  color: #0099ff; /* Nav link hover cerah */
+}
+
+/* Initial states for elements that will be animated by JS on scroll */
+.animated-element {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Specific initial states based on animation type */
+.animated-element.slide-in {
+  transform: translateX(-50px);
+}
+.animated-element.scale-up {
+  transform: scale(0.95);
+}
+
+/* Hero Section */
+#hero {
+  background: url("images/rc_community_logo.png") no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Initial opacity for hero content before JS adds is-visible */
+#hero h1,
+#hero .tagline,
+#hero p,
+#hero .btn {
+  opacity: 0;
+}
+
+/* Memicu animasi hero content saat .hero-animation mendapat is-visible */
+#hero .hero-animation.is-visible h1 {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+#hero .hero-animation.is-visible .tagline {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.4s;
+}
+#hero .hero-animation.is-visible p {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+#hero .hero-animation.is-visible .btn {
+  opacity: 1; /* Pastikan opacity 1 agar animasi terlihat */
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+/* General section styling */
+section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+#about {
+  background-color: #282828; /* About section gelap */
+}
+
+/* Animasi untuk About Us saat 'is-visible' ditambahkan */
+#about .container.animated-element.is-visible {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+#about p {
+  max-width: 800px;
+  margin: 0 auto 15px auto;
+  font-size: 1.1em;
+  color: #cccccc; /* Teks about terang */
+}
+
+#jasa {
+  background-color: #333333; /* Jasa section lebih gelap */
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.service-item {
+  background-color: #222222; /* Item jasa gelap */
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Bayangan lebih gelap */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; /* Penting: Mulai dengan opacity 0 */
+}
+
+/* Animasi untuk Service Items saat 'is-visible' ditambahkan */
+.service-item.animated-element.is-visible {
+  animation: scaleUp 0.6s ease-out forwards;
+}
+
+/* Atur delay untuk animasi item jasa agar muncul berurutan */
+.service-item.animated-element.is-visible:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.service-item.animated-element.is-visible:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.service-item.animated-element.is-visible:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.service-item.animated-element.is-visible:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.service-item.animated-element.is-visible:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Bayangan hover lebih gelap */
+}
+
+.service-icon {
+  font-size: 3em;
+  color: #0099ff; /* Ikon lebih cerah */
+  margin-bottom: 15px;
+}
+
+.service-item h3 {
+  font-size: 1.5em;
+  margin-top: 0;
+  color: #e0e0e0; /* Judul item terang */
+}
+
+.service-item p {
+  font-size: 0.95em;
+  color: #cccccc; /* Teks item terang */
+}
+
+/* Gallery Section */
+#galeri {
+  background-color: #282828; /* Galeri section gelap */
+}
+
+/* Animasi untuk Galeri saat 'is-visible' ditambahkan */
+#galeri .container.animated-element.is-visible {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* --- Gaya Baru untuk Galeri --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; /* Jarak antar gambar */
+  margin: 40px auto;
+  max-width: 1000px; /* Batasi lebar grid */
+  padding: 0 10px; /* Sedikit padding di samping */
+}
+
+.gallery-item {
+  background-color: #333333; /* Latar belakang item galeri */
+  border-radius: 8px;
+  overflow: hidden; /* Penting untuk gambar yang memanjang */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item img {
+  width: 100%; /* Gambar mengisi penuh lebar item */
+  height: 220px; /* Tinggi gambar konsisten */
+  object-fit: cover; /* Penting: Memastikan gambar mengisi area tanpa terdistorsi */
+  display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05); /* Zoom in sedikit saat hover */
+}
+/* --- Akhir Gaya Baru untuk Galeri --- */
+
+/* Contact Section */
+#kontak {
+  background-color: #111111;
+  color: white;
+  padding: 60px 0;
+  text-align: center; /* Tetap di tengah untuk judul dan tombol */
+}
+
+#kontak h2 {
+  color: white;
+}
+
+#kontak h2::after {
+  background-color: white;
+}
+
+.contact-info {
+  font-size: 1.1em;
+  margin: 30px auto;
+  max-width: 600px;
+  /* --- Perubahan untuk merapikan --- */
+  display: flex; /* Menggunakan flexbox */
+  flex-direction: column; /* Susun item secara vertikal */
+  align-items: flex-start; /* Rata kiri item di dalam flexbox */
+  padding-left: 20px; /* Sedikit indentasi dari kiri */
+  text-align: left; /* Perataan teks di dalam item ke kiri */
+  /* --- Akhir Perubahan --- */
+}
+
+.contact-info p {
+  margin-bottom: 15px; /* Tambah jarak antar baris */
+  display: flex; /* Membuat ikon dan teks rata */
+  align-items: center; /* Rata tengah vertikal */
+}
+
+.contact-info i {
+  margin-right: 12px; /* Tambah jarak ikon ke teks */
+  color: #0099ff;
+  min-width: 20px; /* Pastikan ikon memiliki lebar minimum untuk perataan */
+  text-align: center;
+}
+
+#kontak a {
+  color: #f0f0f0;
+  font-weight: normal;
+}
+#kontak a:hover {
+  color: #66ccff;
+}
+/* Footer */
+footer {
+  background-color: #0a0a0a; /* Footer sangat gelap */
+  color: #888; /* Teks footer redup */
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.social-links a {
+  color: #888;
+  font-size: 1.5em;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #0099ff; /* Ikon medsos cerah */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  .btn {
+    padding: 10px 20px;
+    margin: 8px;
+  }
+  .btn.large {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  nav ul li {
+    margin: 5px 0;
+  }
+  header .container {
+    flex-direction: column;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
